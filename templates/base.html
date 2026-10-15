@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>AI StudyHub</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+display:flex;
+background:#f0f2f5;
+}
+
+.sidebar{
+width:250px;
+height:100vh;
+position:fixed;
+background:#2c3e50;
+padding-top:20px;
+}
+
+.sidebar h2{
+color:white;
+text-align:center;
+}
+
+.sidebar a{
+display:block;
+color:white;
+padding:15px;
+text-decoration:none;
+}
+
+.sidebar a:hover{
+background:#34495e;
+}
+
+.content{
+margin-left:270px;
+padding:20px;
+width:100%;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>AI StudyHub</h2>
+
+<div style="color:white;text-align:center">
+
+👤 {{session['email']}}
+
+</div>
+
+<hr>
+
+<a href="/upload">📄 Upload Notes</a>
+<a href="/quiz">📝 Quiz</a>
+<a href="/analytics">📊 Analytics</a>
+<a href="/leaderboard">🏆 Leaderboard</a>
+<a href="/prediction">📈 Prediction</a>
+<a href="/logout">🚪 Logout</a>
+
+</div>
+
+<div class="content">
+
+{% block content %}
+
+{% endblock %}
+
+</div>
+
+</body>
+
+</html>

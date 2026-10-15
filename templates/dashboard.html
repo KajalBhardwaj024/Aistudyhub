@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>
+
+Welcome {{email}}
+
+</h1>
+
+<p>
+
+Your Intelligent Learning Dashboard
+
+</p>
+<h2>📚 My Notes</h2>
+
+{% for note in notes %}
+
+<div style="
+background:white;
+padding:10px;
+margin:10px;
+border-radius:10px;
+box-shadow:0px 0px 5px gray;
+">
+
+<b>{{note.file_name}}</b>
+
+<br>
+
+Subject:
+{{note.subject}}
+
+<br><br>
+
+<a href="/open_note/{{note.id}}">
+
+<button>
+
+Open
+
+</button>
+
+</a>
+</div>
+
+{% endfor %}
+
+{% endblock %}

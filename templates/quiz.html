@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<body>
+
+<div class="container">
+
+<h2>{{question}}</h2>
+
+<form method="POST">
+
+{% for option in options %}
+
+<label>
+
+<input
+type="radio"
+name="answer"
+value="{{option}}"
+required>
+
+{{option}}
+
+</label>
+
+<br><br>
+
+{% endfor %}
+
+<p>
+Time Left:
+<span id="timer">
+30
+</span>
+seconds
+</p>
+
+<button type="submit">
+
+Submit
+
+</button>
+
+</form>
+
+</div>
+
+<script>
+
+let timeLeft=30;
+
+let timer=setInterval(function(){
+
+document.getElementById(
+"timer"
+).innerHTML=timeLeft;
+
+timeLeft--;
+
+if(timeLeft<0){
+
+clearInterval(
+timer
+);
+
+document.forms[0]
+.submit();
+
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>
+{% endblock %}
